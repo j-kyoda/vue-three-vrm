@@ -1,4 +1,4 @@
-# vue-three-vrm
+# @j-kyoda/vue-three-vrm
 
 A Vue 3 component designed to render and display VRM models on your web pages.
 
