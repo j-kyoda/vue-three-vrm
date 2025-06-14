@@ -1,8 +1,9 @@
 {
     "name": "@j-kyoda/vue-three-vrm",
-    "version": "0.5.1",
+    "version": "0.5.2",
     "description": "A Vue 3 component designed to render and display VRM models on your web pages.",
     "type": "module",
+    "private": false,
     "main": "dist/vue-three-vrm.umd.js",
     "module": "dist/vue-three-vrm.es.js",
     "files": [
@@ -15,6 +16,10 @@
     ],
     "author": "j-kyoda <j.kyoda@gmail.com>",
     "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/j-kyoda/vue-three-vrm.git"
+    },
     "peerDependencies": {
         "@pixiv/three-vrm": "^3.4.1",
         "axios": "^1.9.0",
