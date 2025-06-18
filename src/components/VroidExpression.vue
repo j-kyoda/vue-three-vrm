@@ -1,5 +1,5 @@
 <script setup>
-import { inject, onMounted } from 'vue'
+import { inject, onMounted, watch } from 'vue'
 
 import { ResourceLoader } from '@/components/ResourceLoader.js'
 
@@ -51,6 +51,18 @@ onMounted(async () => {
   if (props.data != null) {
     setExpression(props.data)
   } else {
+    loadExpression(props.url)
+  }
+})
+
+watch(() => props.data, () => {
+  if (props.data != null) {
+    setExpression(props.data)
+  }
+})
+
+watch(() => props.url, () => {
+  if (props.url) {
     loadExpression(props.url)
   }
 })

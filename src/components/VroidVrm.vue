@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, watch } from 'vue'
 
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { VRMLoaderPlugin } from '@pixiv/three-vrm'
@@ -64,6 +64,18 @@ onMounted(async () => {
   if (props.data != null) {
     setVrm(props.data)
   } else {
+    loadVrm(props.url)
+  }
+})
+
+watch(() => props.data, () => {
+  if (props.data != null) {
+    setVrm(props.data)
+  }
+})
+
+watch(() => props.url, () => {
+  if (props.url) {
     loadVrm(props.url)
   }
 })
