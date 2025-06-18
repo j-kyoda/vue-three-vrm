@@ -117,7 +117,7 @@ const callback_loaded = (name, command, is_ok, data) =>{
   command="load_pose"
   :name="props.pose_name"
   :url="props.pose_url"
-  :data="props.expression_data"
+  :data="props.pose_data"
   v-on:loading="callback_loading"
   v-on:loaded="callback_loaded" />
 <VroidVrm
