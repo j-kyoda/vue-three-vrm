@@ -11,7 +11,7 @@ export default defineConfig({
     vue(),
     vueDevTools(),
   ],
-  publicDir: false,
+  publicDir: process.env.NODE_ENV === 'production' ? false : true,
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.js'),
