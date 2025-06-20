@@ -3,7 +3,10 @@ import { getCurrentInstance, onMounted, useTemplateRef, watch } from 'vue'
 
 import * as THREE from 'three'
 import WebGL from 'three/examples/jsm/capabilities/WebGL.js'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+import { VRMExpressionPresetName } from '@pixiv/three-vrm'
+import { VRMHumanBoneName } from '@pixiv/three-vrm'
 
 const emit = defineEmits(['init', 'animate'])
 
@@ -42,11 +45,14 @@ let controls = null
 
 const animate = () => {
   const context = {
+    GLTFLoader,
     THREE,
-    scene,
+    VRMExpressionPresetName,
+    VRMHumanBoneName,
     camera,
-    renderer,
     controls,
+    renderer,
+    scene,
   }
   emit('animate', context)
 
@@ -148,11 +154,14 @@ const init = () => {
   }
 
   const context = {
+    GLTFLoader,
     THREE,
-    scene,
+    VRMExpressionPresetName,
+    VRMHumanBoneName,
     camera,
-    renderer,
     controls,
+    renderer,
+    scene,
   }
   emit('init', context)
 }
