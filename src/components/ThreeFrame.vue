@@ -42,6 +42,7 @@ let controls = null
 
 const animate = () => {
   const context = {
+    THREE,
     scene,
     camera,
     renderer,
@@ -147,6 +148,7 @@ const init = () => {
   }
 
   const context = {
+    THREE,
     scene,
     camera,
     renderer,
