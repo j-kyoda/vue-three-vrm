@@ -1,6 +1,6 @@
 {
     "name": "@j-kyoda/vue-three-vrm",
-    "version": "0.6.3",
+    "version": "0.6.4",
     "description": "A Vue 3 component designed to render and display VRM models on your web pages.",
     "type": "module",
     "private": false,
