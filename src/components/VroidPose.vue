@@ -1,9 +1,7 @@
 <script setup>
-import { inject, onMounted, watch } from 'vue'
+import { onMounted, watch } from 'vue'
 
 import { ResourceLoader } from '@/components/ResourceLoader.js'
-
-const axios = inject('axios')
 
 const emits = defineEmits(['loading', 'loaded'])
 
@@ -30,7 +28,7 @@ const loadPose = async (url) => {
   }
   emits('loading', props.name, props.command)
   const loader = new ResourceLoader()
-  const data = await loader.loadPose(axios, url)
+  const data = await loader.fetchPose(url)
   let is_ok = false
   if (data) {
     is_ok = true
