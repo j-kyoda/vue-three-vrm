@@ -41,11 +41,11 @@ const cb_exec = (cbType, ...args) => {
   }
 }
 
-const cb_init = async (context) => {
+const cb_initialized = async (context) => {
   // save context
   render_context.value = context
-  // callback for 'init'
-  cb_exec('init', context)
+  // callback for 'initialized'
+  cb_exec('initialized', context)
 }
 
 const cb_animate = (context) => {
@@ -66,7 +66,7 @@ const cb_loaded = (name, vrm_model) => {
 }
 
 cb_regist({
-  'init': (context) => {
+  'initialized': (context) => {
     render_ready.value = true
     animation.value = true
   },
@@ -111,7 +111,7 @@ cb_regist({
     :useGridHelper="true"
     :useAxesHelper="false"
     :useDefaultLight="true"
-    v-on:init="cb_init"
+    v-on:initialized="cb_initialized"
     v-on:animate="cb_animate"
     />
 </div>

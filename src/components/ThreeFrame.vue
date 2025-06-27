@@ -8,7 +8,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { VRMExpressionPresetName } from '@pixiv/three-vrm'
 import { VRMHumanBoneName } from '@pixiv/three-vrm'
 
-const emit = defineEmits(['init', 'animate'])
+const emit = defineEmits(['initialized', 'animate'])
 
 const props = defineProps({
   animation: {
@@ -163,7 +163,7 @@ const init = () => {
     renderer,
     scene,
   }
-  emit('init', context)
+  emit('initialized', context)
 }
 
 
