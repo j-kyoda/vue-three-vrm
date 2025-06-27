@@ -11,8 +11,8 @@ import ThreeFrame from '@/components/ThreeFrame.vue'
 const cb_funcs = []
 
 // property for ThreeFrame
+const context_ready = ref(false)
 const render_context = ref(null)
-const render_ready = ref(false)
 const animation = ref(false)
 
 // property for VroidControl
@@ -67,7 +67,7 @@ const cb_loaded = (name, vrm_model) => {
 
 cb_regist({
   'initialized': (context) => {
-    render_ready.value = true
+    context_ready.value = true
     animation.value = true
   },
   'loaded': (context, name, vrm_model) => {
@@ -115,7 +115,7 @@ cb_regist({
     v-on:animate="cb_animate"
     />
 </div>
-<div v-if="render_ready">
+<div v-if="context_ready">
   <VroidControl
     :model_name="model_name"
     :expression_name="expression_name"
