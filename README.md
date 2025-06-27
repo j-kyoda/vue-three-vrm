@@ -125,7 +125,7 @@ const model_loaded = (name, vrm_model) => {
 
 | ID              | Type   | default      | Description                                             |
 | :-------------- | :----- | :----------- | :------------------------------------------------------ |
-| model_name      | String | ''           | The name of the VRoid model to display. ** Required **. |
+| model_name      | String | ''           | The name of the VRoid model to display. **Required**.   |
 | expression_name | String | 'expression' | The name of the expression model.                       |
 | expression_url  | String | ''           | The URL of the expression model.                        |
 | expression_data | Object | null         | The object for the expression model.                    |
