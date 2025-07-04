@@ -36,8 +36,10 @@ const loadPose = async (url) => {
   emits('loaded', props.name, props.command, is_ok, data)
 }
 
-const setPose = (data) => {
+const setPose = (data_) => {
   emits('loading', props.name, props.command)
+  const loader = new ResourceLoader()
+  const data = loader.normalizePose(data_)
   let is_ok = false
   if (data) {
     is_ok = true

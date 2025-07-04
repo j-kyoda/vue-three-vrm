@@ -10,8 +10,7 @@ class ResourceLoader {
     return await res.json()
   }
 
-  async fetchPose(url) {
-    const data = await this.fetchJSON(url)
+  normalizePose(data) {
     if (data == null) {
       return null
     }
@@ -21,6 +20,11 @@ class ResourceLoader {
     }
     // pose 0.0
     return data
+  }
+
+  async fetchPose(url) {
+    const data = await this.fetchJSON(url)
+    return this.normalizePose(data)
   }
 
   async fetchExpression(url) {
