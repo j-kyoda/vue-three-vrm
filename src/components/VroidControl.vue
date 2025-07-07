@@ -69,6 +69,7 @@ const cb_loaded = (name, data) => {
     vrmModel.value.updatePose()
   }
   if ('expression' in data) {
+    vrmModel.value.resetExpression()
     vrmModel.value.importExpression(data.expression)
     vrmModel.value.updateExpression()
   }

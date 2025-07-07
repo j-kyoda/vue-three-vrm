@@ -137,6 +137,13 @@ class VrmModel {
     return null
   }
 
+  resetExpression() {
+    if (this.vrm) {
+      return this.vrm.expressionManager.resetValues()
+    }
+    return null
+  }
+
   getExpressionNames() {
     if (this.vrm) {
       let names = []
