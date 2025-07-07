@@ -64,6 +64,7 @@ const cb_loaded = (name, data) => {
     vrmModel.value.setModel(data.vrm)
   }
   if ('pose' in data) {
+    vrmModel.value.resetPose()
     vrmModel.value.setPose(data.pose)
     vrmModel.value.updatePose()
   }
