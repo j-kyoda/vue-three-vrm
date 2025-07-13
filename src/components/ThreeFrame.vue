@@ -15,6 +15,14 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
+  clearAlpha: {
+    type: [String, Number],
+    default: 1.0
+  },
+  clearColor: {
+    type: String,
+    default: '#7fbfff',
+  },
   useOrbitControls: {
     type: Boolean,
     default: false
@@ -90,6 +98,20 @@ watch(() => props.animation, (value) => {
   }
 })
 
+watch(() => props.clearAlpha, (value) => {
+  if (renderer) {
+    renderer.setClearAlpha(parseFloat(value))
+  }
+})
+
+watch(() => props.clearColor, (value) => {
+  if (renderer) {
+    const color = new THREE.Color(value)
+    const alpha = renderer.getClearAlpha()
+    renderer.setClearColor(color, alpha)
+  }
+})
+
 const init = () => {
   // get render area
   const el = mydom.value
@@ -106,7 +128,7 @@ const init = () => {
   renderer = new THREE.WebGLRenderer(renderer_option)
   renderer.setPixelRatio(window.devicePixelRatio)
   renderer.setSize(el_width, el_height)
-  renderer.setClearColor(0x7fbfff, 1.0)
+  renderer.setClearColor(props.clearColor, props.clearAlpha)
   renderer.outputColorSpace = THREE.SRGBColorSpace
   el.appendChild(renderer.domElement)
 
