@@ -89,13 +89,15 @@ const model_loaded = (name, vrm_model) => {
 
 ### Props
 
-| ID               | Type     | Default | Description                         |
-| :--------------- | :------- | :------ | :---------------------------------- |
-| animation        | Boolean  | false   | Controls animation loop execution.  |
-| useOrbitControls | Boolean  | false   | Enables/disables `OrbitControls`.   |
-| useGridHelper    | Boolean  | false   | Shows/hides the grid.               |
-| useAxesHelper    | Boolean  | false   | Shows/hides the 3D axis arrows.     |
-| useDefaultLight  | Boolean  | false   | Sets up default lighting.           |
+| ID               | Type     | Default | Description                            |
+| :--------------- | :------- | :------ | :------------------------------------- |
+| animation        | Boolean  | false   | Controls animation loop execution.     |
+| clearAlpha       | Number   | 1.0     | Clear Alpha value. Ranges from 0 to 1. |
+| clearColor       | String   | #7fbfff | Clear color value.                     |
+| useOrbitControls | Boolean  | false   | Enables/disables `OrbitControls`.      |
+| useGridHelper    | Boolean  | false   | Shows/hides the grid.                  |
+| useAxesHelper    | Boolean  | false   | Shows/hides the 3D axis arrows.        |
+| useDefaultLight  | Boolean  | false   | Sets up default lighting.              |
 
 ### Events (Emits)
 
