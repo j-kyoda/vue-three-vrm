@@ -114,6 +114,7 @@ const model_loaded = (name, vrm_model) => {
   THREE,
   VRMExpressionPresetName,
   VRMHumanBoneName,
+  VRMUtils,
   camera,    // Instance of THREE.PerspectiveCamera
   controls,  // Instance of OrbitControls
   renderer,  // Instance of THREE.WebGLRenderer
