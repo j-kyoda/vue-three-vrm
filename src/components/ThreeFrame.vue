@@ -7,6 +7,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { VRMExpressionPresetName } from '@pixiv/three-vrm'
 import { VRMHumanBoneName } from '@pixiv/three-vrm'
+import { VRMUtils } from '@pixiv/three-vrm'
 
 const emit = defineEmits(['initialized', 'animate'])
 
@@ -57,6 +58,7 @@ const animate = () => {
     THREE,
     VRMExpressionPresetName,
     VRMHumanBoneName,
+    VRMUtils,
     camera,
     controls,
     renderer,
@@ -180,6 +182,7 @@ const init = () => {
     THREE,
     VRMExpressionPresetName,
     VRMHumanBoneName,
+    VRMUtils,
     camera,
     controls,
     renderer,
