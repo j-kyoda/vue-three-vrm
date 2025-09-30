@@ -21,6 +21,7 @@
         "url": "https://github.com/j-kyoda/vue-three-vrm.git"
     },
     "peerDependencies": {
+        "@pixiv/three-vrm-animation": "^3.4.0",
         "@pixiv/three-vrm": "^3.4.0",
         "three": ">=0.137",
         "vue": "^3.5.0"

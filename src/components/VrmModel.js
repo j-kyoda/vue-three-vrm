@@ -1,6 +1,8 @@
 class VrmModel {
   constructor() {
     this.vrm = null
+    this.vrma = null
+    this.mixer = null
   }
   // getter
   get scene() {
@@ -13,6 +15,14 @@ class VrmModel {
   // methods
   setModel(vrm_) {
     this.vrm = vrm_
+  }
+
+  setVrma(vrma_) {
+    this.vrma = vrma_
+  }
+
+  setMixer(mixer_) {
+    this.mixer = mixer_
   }
 
   setPosition(pos) {
@@ -175,6 +185,14 @@ class VrmModel {
     return null
   }
 
+  updateAnimation(deltaTime) {
+    if (this.mixer) {
+      this.mixer.update(deltaTime)
+    }
+    if (this.vrm) {
+      this.vrm.update(deltaTime)
+    }
+  }
 }
 
 export {

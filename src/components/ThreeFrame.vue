@@ -45,14 +45,19 @@ const props = defineProps({
 const dom_id = 'dom' + getCurrentInstance().uid
 const mydom = useTemplateRef(dom_id)
 
+let animationClock = null
 let animationFrameId = null
 let scene = null
 let camera = null
 let renderer = null
 let controls = null
 
-
 const animate = () => {
+  if (animationClock == null) {
+    animationClock = new THREE.Clock()
+    animationClock.start()
+  }
+  const deltaTime = animationClock.getDelta()
   const context = {
     GLTFLoader,
     THREE,
@@ -61,6 +66,7 @@ const animate = () => {
     VRMUtils,
     camera,
     controls,
+    deltaTime,
     renderer,
     scene,
   }

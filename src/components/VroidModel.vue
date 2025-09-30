@@ -4,6 +4,7 @@ import { ref } from 'vue'
 import VroidExpression from '@/components/VroidExpression.vue'
 import VroidPose from '@/components/VroidPose.vue'
 import VroidVrm from '@/components/VroidVrm.vue'
+import VroidVrma from '@/components/VroidVrma.vue'
 
 const emit = defineEmits(['loading', 'loaded'])
 
@@ -41,6 +42,16 @@ const props = defineProps({
     type: [Object, null],
     default: null
   },
+  vrma_name: {
+    type: String
+  },
+  vrma_url: {
+    type: String
+  },
+  vrma_data: {
+    type: [Object, null],
+    default: null
+  },
 })
 
 const tasks = {}
@@ -49,6 +60,7 @@ const done_tasks = {}
 const _expression_data = ref(null)  // expression
 const _pose_data = ref(null)        // pose
 const _vrm_data = ref(null)         // vrm
+const _vrma_data = ref(null)        // vrma
 
 
 const callback_loading = (name, command) => {
@@ -74,6 +86,9 @@ const callback_loaded = (name, command, is_ok, data) =>{
     if (command == 'load_vrm') {
       _vrm_data.value = data
     }
+    if (command == 'load_vrma') {
+      _vrma_data.value = data
+    }
     done_tasks[name] = command
   }
   delete tasks[name]
@@ -92,6 +107,9 @@ const callback_loaded = (name, command, is_ok, data) =>{
       }
       if (command == 'load_vrm') {
         data['vrm'] = _vrm_data.value
+      }
+      if (command == 'load_vrma') {
+        data['vrma'] = _vrma_data.value
       }
     }
     emit('loaded', props.name, data)
@@ -125,6 +143,13 @@ const callback_loaded = (name, command, is_ok, data) =>{
   :name="props.vrm_name"
   :url="props.vrm_url"
   :data="props.vrm_data"
+  v-on:loading="callback_loading"
+  v-on:loaded="callback_loaded" />
+<VroidVrma
+  command="load_vrma"
+  :name="props.vrma_name"
+  :url="props.vrma_url"
+  :data="props.vrma_data"
   v-on:loading="callback_loading"
   v-on:loaded="callback_loaded" />
 </template>

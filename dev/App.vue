@@ -24,6 +24,11 @@ const pose_url = 'poses/chico_pose_goodjob_202506.json'
 const vrm_name = 'chico_hoodie'
 const vrm_url = 'models/chico_hoodie.vrm'
 
+const vrma_name = 'sample.vrma'
+const vrma_url = 'models/sample.vrma'
+
+let _vrm_model = null
+
 
 const cb_regist = (cbModule) => {
   // register callback
@@ -71,6 +76,8 @@ cb_regist({
     animation.value = true
   },
   'loaded': (context, name, vrm_model) => {
+    // save
+    _vrm_model = vrm_model
     // remove model from scene if exists
     const current = context.scene.getObjectByName(name)
     if (current) {
@@ -99,7 +106,15 @@ cb_regist({
                                   bonePos.z)
       context.controls.update()
     }
+  },
+  'animate': (context) => {
+    const { deltaTime } = context
+    if (_vrm_model != null) {
+      // animate
+      _vrm_model.updateAnimation(deltaTime)
+    }
   }
+
 })
 </script>
 
@@ -124,6 +139,8 @@ cb_regist({
     :pose_url="pose_url"
     :vrm_name="vrm_name"
     :vrm_url="vrm_url"
+    :vrma_name="vrma_name"
+    :vrma_url="vrma_url"
     v-on:loading="cb_loading"
     v-on:loaded="cb_loaded"
     />
