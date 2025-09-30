@@ -7,7 +7,7 @@ A Vue 3 component designed to render and display VRM models on your web pages.
 Package is available on NPM: https://www.npmjs.com/package/@j-kyoda/vue-three-vrm
 
 ```sh
-npm install @j-kyoda/vue-three-vrm three @pixiv/three-vrm
+npm install @j-kyoda/vue-three-vrm three @pixiv/three-vrm @pixiv/three-vrm-animation
 ```
 
 ---
@@ -31,7 +31,8 @@ const model_name = 'chico_hoodie'
 const pose_url = 'poses/chico_pose_goodjob_202506.json'
 // toDo: Please enter your VRM model URL here.
 const vrm_url = 'models/chico_hoodie.vrm'
-
+// toDo: Please enter your VRMA file URL here.(OPTION)
+const vrma_url = 'models/sample.vrma'
 
 const context_initialized = async (context) => {
   render_context.value = context  // save context
@@ -67,6 +68,7 @@ const model_loaded = (name, vrm_model) => {
     :model_name="model_name"
     :pose_url="pose_url"
     :vrm_url="vrm_url"
+    :vrma_url="vrma_url"
     v-on:loaded="model_loaded"
     />
 </div>
@@ -117,6 +119,7 @@ const model_loaded = (name, vrm_model) => {
   VRMUtils,
   camera,    // Instance of THREE.PerspectiveCamera
   controls,  // Instance of OrbitControls
+  deltaTime, //
   renderer,  // Instance of THREE.WebGLRenderer
   scene      // Instance of THREE.Scene
 }
@@ -138,6 +141,9 @@ const model_loaded = (name, vrm_model) => {
 | vrm_name        | String | 'vrm'        | The name of the VRM model.                              |
 | vrm_url         | String | ''           | The URL of the VRM model.                               |
 | vrm_data        | Object | null         | The object for the VRM model.                           |
+| vrma_name       | String | ''           | The name of the VRMA model.                             |
+| vrma_url        | String | null         | The URL of the VRMA model.                              |
+| vrma_data       | Object | null         | The object for the VRMA model.                          |
 
 ### Events (Emits)
 
