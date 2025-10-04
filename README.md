@@ -34,6 +34,9 @@ const vrm_url = 'models/chico_hoodie.vrm'
 // toDo: Please enter your VRMA file URL here.(OPTION)
 const vrma_url = 'models/sample.vrma'
 
+let _vrm_model = null
+
+
 const context_initialized = async (context) => {
   render_context.value = context  // save context
   context_ready.value = true  // Begin model loading.
@@ -42,6 +45,9 @@ const context_initialized = async (context) => {
 const model_loaded = (name, vrm_model) => {
   const context = render_context.value
 
+  // save
+  _vrm_model = vrm_model
+
   // add model to scene
   const model = vrm_model.scene
   model.name = name
@@ -49,6 +55,14 @@ const model_loaded = (name, vrm_model) => {
   context.scene.add(model)
 
   animation.value = true  // Starting animation.
+}
+
+const cb_animate = (context) => {
+  const { deltaTime } = context
+  if (_vrm_model != null) {
+    // animate
+    _vrm_model.updateAnimation(deltaTime)
+  }
 }
 </script>
 
@@ -61,6 +75,7 @@ const model_loaded = (name, vrm_model) => {
     :useAxesHelper="false"
     :useDefaultLight="true"
     v-on:initialized="context_initialized"
+    v-on:animate="cb_animate"
     />
 </div>
 <div v-if="context_ready">
