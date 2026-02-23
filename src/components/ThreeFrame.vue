@@ -1,5 +1,6 @@
 <script setup>
-import { getCurrentInstance, onMounted, useTemplateRef, watch } from 'vue'
+import { getCurrentInstance, onMounted, onUnmounted,
+         useTemplateRef, watch } from 'vue'
 
 import * as THREE from 'three'
 import WebGL from 'three/examples/jsm/capabilities/WebGL.js'
@@ -51,6 +52,8 @@ let scene = null
 let camera = null
 let renderer = null
 let controls = null
+
+let observer = null
 
 const animate = () => {
   if (animationClock == null) {
@@ -204,11 +207,10 @@ onMounted(async () => {
     console.error(warning)
     return
   }
-  // Set Resize Handler
-  const getDimensions = () => {
-    const el = mydom.value
-    const el_width = el.clientWidth
-    const el_height = el.clientHeight
+  observer = new ResizeObserver((entries) => {
+    const entry = entries[0]
+    const el_width = entry.contentRect.width
+    const el_height = entry.contentRect.height
 
     renderer.setPixelRatio(window.devicePixelRatio)
     renderer.setSize(el_width, el_height)
@@ -216,10 +218,17 @@ onMounted(async () => {
     // Set aspect rate
     camera.aspect = el_width / el_height
     camera.updateProjectionMatrix()
-  }
-  window.addEventListener('resize', getDimensions)
+  })
+  // watch resize
+  observer.observe(mydom.value)
 
   init()
+})
+
+onUnmounted(() => {
+  if (observer) {
+    observer.disconnect()
+  }
 })
 </script>
 
