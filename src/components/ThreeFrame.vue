@@ -46,7 +46,7 @@ const props = defineProps({
 const dom_id = 'dom' + getCurrentInstance().uid
 const mydom = useTemplateRef(dom_id)
 
-let animationClock = null
+let animationTimer = null
 let animationFrameId = null
 let scene = null
 let camera = null
@@ -55,12 +55,14 @@ let controls = null
 
 let observer = null
 
-const animate = () => {
-  if (animationClock == null) {
-    animationClock = new THREE.Clock()
-    animationClock.start()
+const animate = (timestamp) => {
+  if (animationTimer == null) {
+    animationTimer = new THREE.Timer()
   }
-  const deltaTime = animationClock.getDelta()
+  if (animationTimer != null) {
+    animationTimer.update(timestamp)
+  }
+  const deltaTime = animationTimer.getDelta()
   const context = {
     GLTFLoader,
     THREE,
