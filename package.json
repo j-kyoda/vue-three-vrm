@@ -18,7 +18,7 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/j-kyoda/vue-three-vrm.git"
+        "url": "git+https://github.com/j-kyoda/vue-three-vrm.git"
     },
     "peerDependencies": {
         "@pixiv/three-vrm": "^3.5",
