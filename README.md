@@ -167,6 +167,24 @@ const cb_animate = (context) => {
 | loading    | Occurs while the VRoid model is loading.          | VRoid model name                     |
 | loaded     | Occurs when the VRoid model has finished loading. | VRoid model name, VRMModel instance  |
 
+## GltfControl
+
+### Props
+
+| ID              | Type   | default      | Description                                             |
+| :-------------- | :----- | :----------- | :------------------------------------------------------ |
+| name            | String | ''           | The name of the GLTF model.                             |
+| url             | String | ''           | The URL of the GLTF model.                              |
+| data            | Object | null         | The object for the GLTF model.                          |
+
+### Events (Emits)
+
+| Event      | Description                                       | Payload                              |
+| :--------- | :------------------------------------------------ | :----------------------------------- |
+| loading    | Occurs while the GLTF model is loading.           | GLTF model name                      |
+| loaded     | Occurs when the GLTF model has finished loading.  | GLTF model name, GltfModel instance  |
+
+
 
 ## License
 
