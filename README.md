@@ -171,11 +171,16 @@ const cb_animate = (context) => {
 
 ### Props
 
-| ID              | Type   | default      | Description                                             |
-| :-------------- | :----- | :----------- | :------------------------------------------------------ |
-| name            | String | ''           | The name of the GLTF model.                             |
-| url             | String | ''           | The URL of the GLTF model.                              |
-| data            | Object | null         | The object for the GLTF model.                          |
+| ID              | Type   | default      | Description                                                   |
+| :-------------- | :----- | :----------- | :-----------------------------------------------------------  |
+| name            | String | ''           | The name of the GLTF model.                                   |
+| url             | String | ''           | The URL of the GLTF model.                                    |
+| data            | Object | null         | The object for the GLTF model.                                |
+| scale           | Object | null         | The object for scale. {x: 1, y: 1, z: 1}                      |
+| position        | Object | null         | The object for position. {x: 0, y: 0, z: 0}                   |
+| rotaion         | Object | null         | The object for rotaion. {x: 0, y: 0, z: 0}                    |
+| wrap            | Object | null         | The object for warp. {s: 'CLAMP_TO_EDGE', t: 'CLAMP_TO_EDGE'} |
+| repeat          | Object | null         | The object for repeat. {u: 0, v: 0}                           |
 
 ### Events (Emits)
 
@@ -183,6 +188,7 @@ const cb_animate = (context) => {
 | :--------- | :------------------------------------------------ | :----------------------------------- |
 | loading    | Occurs while the GLTF model is loading.           | GLTF model name                      |
 | loaded     | Occurs when the GLTF model has finished loading.  | GLTF model name, GltfModel instance  |
+| error      | When an error occurs in GLTF model.               | error message                        |
 
 
 
