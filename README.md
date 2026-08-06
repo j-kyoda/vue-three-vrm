@@ -180,7 +180,7 @@ const cb_animate = (context) => {
 | position        | Object | null         | The object for position. {x: 0, y: 0, z: 0}                   |
 | rotaion         | Object | null         | The object for rotaion. {x: 0, y: 0, z: 0}                    |
 | wrap            | Object | null         | The object for warp. {s: 'CLAMP_TO_EDGE', t: 'CLAMP_TO_EDGE'} |
-| repeat          | Object | null         | The object for repeat. {u: 0, v: 0}                           |
+| repeat          | Object | null         | The object for repeat. {u: 1, v: 1}                           |
 
 ### Events (Emits)
 
