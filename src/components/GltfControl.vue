@@ -107,7 +107,7 @@ const loadGltf = async (url) => {
       wrap.s = getWrapMode('CLAMP_TO_EDGE')
       wrap.t = getWrapMode('CLAMP_TO_EDGE')
     }
-    const repeat = {'u': 0, 'v': 0}
+    const repeat = {'u': 1, 'v': 1}
     if (props.repeat) {
       repeat.u = props.repeat.u
       repeat.v = props.repeat.v
