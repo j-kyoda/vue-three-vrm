@@ -8,6 +8,7 @@ import VroidExpression from '@/components/VroidExpression.vue'
 import VroidModel from '@/components/VroidModel.vue'
 import VroidPose from '@/components/VroidPose.vue'
 import VroidVrm from '@/components/VroidVrm.vue'
+import VroidVrma from '@/components/VroidVrma.vue'
 
 
 export {
@@ -20,5 +21,6 @@ export {
   VroidExpression,
   VroidModel,
   VroidPose,
-  VroidVrm
+  VroidVrm,
+  VroidVrma
 }
