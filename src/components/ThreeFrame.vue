@@ -237,14 +237,9 @@ onUnmounted(() => {
 <template>
 <div
   :ref="dom_id"
-  class="box">
+  style="display: block; width: 100%; height: 100%;">
 </div>
 </template>
 
 <style scoped>
-.box {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
 </style>
