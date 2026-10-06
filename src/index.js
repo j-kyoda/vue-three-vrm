@@ -1,8 +1,13 @@
-import { ResourceLoader } from '@/components/ResourceLoader.js'
 import { GltfModel } from '@/components/GltfModel.js'
+import { LightModel } from '@/components/LightModel.js'
+import { ResourceLoader } from '@/components/ResourceLoader.js'
 import { VrmModel } from '@/components/VrmModel.js'
-import ThreeFrame from '@/components/ThreeFrame.vue'
+import AmbieltLightControl from '@/components/AmbieltLightControl.vue'
+import DirectionalLightControl from '@/components/DirectionalLightControl.vue'
 import GltfControl from '@/components/GltfControl.vue'
+import PointLightControl from '@/components/PointLightControl.vue'
+import SpotLightControl from '@/components/SpotLightControl.vue'
+import ThreeFrame from '@/components/ThreeFrame.vue'
 import VroidControl from '@/components/VroidControl.vue'
 import VroidExpression from '@/components/VroidExpression.vue'
 import VroidModel from '@/components/VroidModel.vue'
@@ -12,10 +17,15 @@ import VroidVrma from '@/components/VroidVrma.vue'
 
 
 export {
-  ResourceLoader,
-  ThreeFrame,
-  GltfModel,
+  AmbieltLightControl,
+  DirectionalLightControl,
   GltfControl,
+  GltfModel,
+  LightModel,
+  PointLightControl,
+  ResourceLoader,
+  SpotLightControl,
+  ThreeFrame,
   VrmModel,
   VroidControl,
   VroidExpression,
