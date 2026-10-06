@@ -171,16 +171,16 @@ const cb_animate = (context) => {
 
 ### Props
 
-| ID              | Type   | default      | Description                                                   |
-| :-------------- | :----- | :----------- | :-----------------------------------------------------------  |
-| name            | String | ''           | The name of the GLTF model.                                   |
-| url             | String | ''           | The URL of the GLTF model.                                    |
-| data            | Object | null         | The object for the GLTF model.                                |
-| scale           | Object | null         | The object for scale. {x: 1, y: 1, z: 1}                      |
-| position        | Object | null         | The object for position. {x: 0, y: 0, z: 0}                   |
-| rotaion         | Object | null         | The object for rotaion. {x: 0, y: 0, z: 0}                    |
-| wrap            | Object | null         | The object for warp. {s: 'CLAMP_TO_EDGE', t: 'CLAMP_TO_EDGE'} |
-| repeat          | Object | null         | The object for repeat. {u: 1, v: 1}                           |
+| ID              | Type   | default      | Description                                                    |
+| :-------------- | :----- | :----------- | :------------------------------------------------------------- |
+| name            | String | ''           | The name of the GLTF model.                                    |
+| url             | String | ''           | The URL of the GLTF model.                                     |
+| data            | Object | null         | The object for the GLTF model.                                 |
+| scale           | Object | null         | The object for scale. {x: 1, y: 1, z: 1}                       |
+| position        | Object | null         | The object for position. {x: 0, y: 0, z: 0}                    |
+| rotaion         | Object | null         | The object for rotaion. {x: 0, y: 0, z: 0}                     |
+| wrap            | Object | null         | The object for warp. {s: 'CLAMP_TO_EDGE', t: 'CLAMP_TO_EDGE'}  |
+| repeat          | Object | null         | The object for repeat. {u: 1, v: 1}                            |
 
 ### Events (Emits)
 
@@ -190,6 +190,83 @@ const cb_animate = (context) => {
 | loaded     | Occurs when the GLTF model has finished loading.  | GLTF model name, GltfModel instance  |
 | error      | When an error occurs in GLTF model.               | error message                        |
 
+## AmbieltLightControl
+
+### Props
+
+| ID              | Type           | default      | Description                                |
+| :-------------- | :------------- | :----------- | :----------------------------------------- |
+| name            | String         | ''           | The name of the model.                     |
+| color           | String, Number | null         | The color of the model for THREE.Color().  |
+| intensity       | Number         | null         | The intensity of the model.                |
+
+### Events (Emits)
+
+| Event      | Description                                       | Payload                          |
+| :--------- | :------------------------------------------------ | :------------------------------- |
+| loading    | Occurs while the model is loading.                | model name                       |
+| loaded     | Occurs when the GLTF model has finished loading.  | model name, LightModel instance  |
+
+## DirectionalLightControl
+
+### Props
+
+| ID              | Type           | default      | Description                                                 |
+| :-------------- | :------------- | :----------- | :---------------------------------------------------------- |
+| name            | String         | ''           | The name of the model.                                      |
+| color           | String, Number | null         | The color of the model for THREE.Color().                   |
+| intensity       | Number         | null         | The intensity of the model.                                 |
+| position        | Object         | null         | The position object(like {x: 0, y: 0, Z: 0}) of the model.  |
+| target          | Object         | null         | The target object(like {x: 0, y: 0, Z: 0}) of the model.    |
+
+### Events (Emits)
+
+| Event      | Description                                       | Payload                          |
+| :--------- | :------------------------------------------------ | :------------------------------- |
+| loading    | Occurs while the model is loading.                | model name                       |
+| loaded     | Occurs when the GLTF model has finished loading.  | model name, LightModel instance  |
+
+## PointLightControl
+
+### Props
+
+| ID              | Type           | default      | Description                                                 |
+| :-------------- | :------------- | :----------- | :---------------------------------------------------------- |
+| name            | String         | ''           | The name of the model.                                      |
+| color           | String, Number | null         | The color of the model for THREE.Color().                   |
+| intensity       | Number         | null         | The intensity of the model.                                 |
+| position        | Object         | null         | The position object(like {x: 0, y: 0, Z: 0}) of the model.  |
+| distance        | Number         | null         | The distance of the model.                                  |
+| decay           | Number         | null         | The decay of the model.                                     |
+
+### Events (Emits)
+
+| Event      | Description                                       | Payload                          |
+| :--------- | :------------------------------------------------ | :------------------------------- |
+| loading    | Occurs while the model is loading.                | model name                       |
+| loaded     | Occurs when the GLTF model has finished loading.  | model name, LightModel instance  |
+
+## SpotLightControl
+
+### Props
+
+| ID              | Type           | default      | Description                                                 |
+| :-------------- | :------------- | :----------- | :---------------------------------------------------------- |
+| name            | String         | ''           | The name of the model.                                      |
+| color           | String, Number | null         | The color of the model for THREE.Color().                   |
+| intensity       | Number         | null         | The intensity of the model.                                 |
+| position        | Object         | null         | The position object(like {x: 0, y: 0, Z: 0}) of the model.  |
+| distance        | Number         | null         | The distance of the model.                                  |
+| angle           | Number         | null         | The angle of the model.                                     |
+| penumbra        | Number         | null         | The penumbra of the model.                                  |
+| decay           | Number         | null         | The decay of the model.                                     |
+
+### Events (Emits)
+
+| Event      | Description                                       | Payload                          |
+| :--------- | :------------------------------------------------ | :------------------------------- |
+| loading    | Occurs while the model is loading.                | model name                       |
+| loaded     | Occurs when the GLTF model has finished loading.  | model name, LightModel instance  |
 
 
 ## License
