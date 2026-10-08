@@ -190,7 +190,7 @@ const cb_animate = (context) => {
 | loaded     | Occurs when the GLTF model has finished loading.  | GLTF model name, GltfModel instance  |
 | error      | When an error occurs in GLTF model.               | error message                        |
 
-## AmbieltLightControl
+## AmbientLightControl
 
 ### Props
 
