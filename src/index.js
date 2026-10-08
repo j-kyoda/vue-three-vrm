@@ -2,7 +2,7 @@ import { GltfModel } from '@/components/GltfModel.js'
 import { LightModel } from '@/components/LightModel.js'
 import { ResourceLoader } from '@/components/ResourceLoader.js'
 import { VrmModel } from '@/components/VrmModel.js'
-import AmbieltLightControl from '@/components/AmbieltLightControl.vue'
+import AmbientLightControl from '@/components/AmbientLightControl.vue'
 import DirectionalLightControl from '@/components/DirectionalLightControl.vue'
 import GltfControl from '@/components/GltfControl.vue'
 import PointLightControl from '@/components/PointLightControl.vue'
@@ -17,7 +17,7 @@ import VroidVrma from '@/components/VroidVrma.vue'
 
 
 export {
-  AmbieltLightControl,
+  AmbientLightControl,
   DirectionalLightControl,
   GltfControl,
   GltfModel,
